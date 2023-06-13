@@ -1,27 +1,17 @@
-name: NodeJS
-
+name: npm
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
-
+    branches:
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x, 18.x]
-
     steps:
-    - uses: actions/checkout@v3
-
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-
-    - name: Build
-      run: |
-        npm install
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build application 5
+        run: |
+          echo "AWS_SECRET_ACCESS_KEY=tMWgQXmAm1AsOpf396erDeV6LmY0i8Oz1+EA17sW"
